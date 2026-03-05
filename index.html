@@ -9,7 +9,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Header/Navigation -->
     <header class="header">
         <nav class="nav container">
             <div class="logo">ŁatwyProgres</div>
@@ -19,7 +18,6 @@
         </nav>
     </header>
 
-    <!-- Hero Section -->
     <section class="hero">
         <div class="container">
             <div class="hero-content">
@@ -27,7 +25,6 @@
                 <p class="hero-subtitle fade-in">Prosta, darmowa aplikacja do śledzenia treningów offline. Zero reklam. Skup się na ciężarach.</p>
                 <a href="https://github.com/xgregorgrand/LatwyProgres/releases/download/v0.3-beta/LatwyProgres-v0.3beta.apk" class="btn btn-primary fade-in">Pobierz na Androida (.APK)</a>
 
-                <!-- App Screenshots Carousel -->
                 <div class="screenshots-carousel fade-in">
                     <div class="carousel-container">
                         <div class="carousel-track">
@@ -60,7 +57,6 @@
         </div>
     </section>
 
-    <!-- Features Section -->
     <section class="features section">
         <div class="container">
             <h2 class="section-title">Dlaczego ŁatwyProgres?</h2>
@@ -101,7 +97,6 @@
         </div>
     </section>
 
-    <!-- Installation Section -->
     <section class="installation section">
         <div class="container">
             <h2 class="section-title">Jak zainstalować wersję Beta?</h2>
@@ -133,7 +128,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
@@ -151,7 +145,6 @@
     </footer>
 
     <script>
-        // Intersection Observer for scroll animations
         const observerOptions = {
             threshold: 0.15,
             rootMargin: '0px 0px -50px 0px'
@@ -169,7 +162,6 @@
             observer.observe(el);
         });
 
-        // Carousel functionality
         const track = document.querySelector('.carousel-track');
         const dots = document.querySelectorAll('.dot');
         const screenshots = document.querySelectorAll('.screenshot-item');
@@ -199,7 +191,6 @@
             clearInterval(autoplayInterval);
         }
 
-        // Dot navigation
         dots.forEach(dot => {
             dot.addEventListener('click', () => {
                 const index = parseInt(dot.getAttribute('data-index'));
@@ -209,7 +200,6 @@
             });
         });
 
-        // Touch/Swipe support
         let touchStartX = 0;
         let touchEndX = 0;
 
@@ -232,21 +222,17 @@
 
             if (Math.abs(diff) > swipeThreshold) {
                 if (diff > 0) {
-                    // Swipe left - next
                     const nextIndex = (currentIndex + 1) % screenshots.length;
                     updateCarousel(nextIndex);
                 } else {
-                    // Swipe right - previous
                     const prevIndex = (currentIndex - 1 + screenshots.length) % screenshots.length;
                     updateCarousel(prevIndex);
                 }
             }
         }
 
-        // Start autoplay on load
         startAutoplay();
 
-        // Pause on hover
         carouselContainer.addEventListener('mouseenter', stopAutoplay);
         carouselContainer.addEventListener('mouseleave', startAutoplay);
     </script>
